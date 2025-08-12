@@ -1,0 +1,13 @@
+# Primary PST parser
+libpff-python
+
+# Data processing
+pandas
+openpyxl
+
+# Core requirements
+setuptools
+wheel
+
+
+

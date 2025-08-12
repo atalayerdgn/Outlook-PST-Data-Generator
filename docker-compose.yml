@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  pst_analyzer:
+    build: ./extract
+    volumes:
+      - ./extract/metadata:/app/metadata
+      - ./extract/data:/app/data
+  datagen:
+    build: ./datagen
+    volumes:
+      - ./extract/metadata:/data/metadata
+  convert:
+    build: ./convert
+    command: ["--metadata-dir", "/data/metadata", "--out-dir", "/data/converted"]
+    volumes:
+      - ./extract/metadata:/data/metadata:ro
+      - ./convert/output:/data/converted
